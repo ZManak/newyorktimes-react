@@ -10,13 +10,17 @@ import ListNews from "./ListNews/ListNews"
 class Main extends Component {
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      localNews: [],
+      news: []
+  }
   }
 
   async componentDidMount(){
     const resp = await fetch('https://api.nytimes.com/svc/topstories/v2/science.json?api-key='+process.env.REACT_APP_API_KEY);
     const data = await resp.json();
-    this.setState({news: data.results})
+    const allNews = [...data.results, ...this.state.localNews]
+    this.setState({news: allNews.slice(2,10)})
   }
 
   render() {
@@ -25,7 +29,7 @@ class Main extends Component {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Form />} />
-        <Route path="/news" element={<ListNews news={this.state.news} />} />
+        <Route path="/news" element={<ListNews data={this.state.news} />} />
       </Routes>
     </main>
     )

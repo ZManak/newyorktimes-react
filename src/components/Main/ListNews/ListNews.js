@@ -1,17 +1,19 @@
 import React, { Component } from "react";
+import Cards from "./Card"
 
 class ListNews extends Component {
-  constructor(props){
+   constructor(props){
     super(props)
+
     this.state = {
-      news: this.props.news
+      newsList: this.props.data
     }
-  }
+   }
 
   render() {
     return (
     <section className="list-news">
-      
+      {this.props.data.map(data => <Cards new={data} key={data.abstract}/> )}
     </section>
     )
   }
