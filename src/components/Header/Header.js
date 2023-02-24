@@ -7,14 +7,11 @@ import Typography from "@mui/material/Typography";
 import { Menu } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-
-const pages = ["Home", "News", "Create"];
-const settings = ["Login"];
+import { Link } from "@mui/material"
+import { Article } from "@mui/icons-material"
 
 class Header extends React.Component {
   constructor(props) {
@@ -47,7 +44,7 @@ class Header extends React.Component {
     }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { background: '#000000', xs: "none", md: "flex" }, mr: 1 }} />
+          <Article sx={{ display: { background: '#000000', xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -63,7 +60,7 @@ class Header extends React.Component {
               textDecoration: "none"
             }}
           >
-            "PRESSROOM.net"
+            "w5.PRESSROOM"
           </Typography>
 
           <Box sx={{ background: '#000000', flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -95,11 +92,21 @@ class Header extends React.Component {
                 display: { background: '#272A31', xs: "block", md: "none" }
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={this.handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              
+              <MenuItem key="Home" onClick={this.handleCloseNavMenu}>
+                  <Link href="/" textAlign="center">Home</Link>
+              </MenuItem>
+              
+              <Link to="/news">
+              <MenuItem key="News" onClick={this.handleCloseNavMenu}>
+                  <Link href="/news" textAlign="center">News</Link>
+              </MenuItem>
+              </Link>
+              <Link to="/create">
+              <MenuItem key="Create" onClick={this.handleCloseNavMenu}>
+                  <Link href="/create" textAlign="center">Create</Link>
+              </MenuItem>
+              </Link>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { background: '#000000', xs: "none", md: "none" }, mr: 1 }} />
@@ -119,48 +126,28 @@ class Header extends React.Component {
               textDecoration: "none"
             }}
           >
-            PRESSROOM
+            w5.PRESSROOM
           </Typography>
           <Box sx={{ background: '#000000', flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={this.handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+              
+                <MenuItem key="Home" onClick={this.handleCloseNavMenu}>
+                    <Button href="/" textAlign="center">Home</Button>
+                </MenuItem>
+              
+              
+                <MenuItem key="News" onClick={this.handleCloseNavMenu}>
+                    <Button href="/news" textAlign="center">News</Button>
+                </MenuItem>
+              
+              
+              <MenuItem key="Create" onClick={this.handleCloseNavMenu}>
+                <Button href="/create" textAlign="center">Create</Button>
+              </MenuItem>
+              
           </Box>
 
           <Box sx={{ background: '#000000', flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={this.handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={this.state.anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right"
-              }}
-              open={Boolean(this.state.anchorElUser)}
-              onClose={this.handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={this.handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <Typography color="inherit">Hi!</Typography>
           </Box>
         </Toolbar>
       </Container>
