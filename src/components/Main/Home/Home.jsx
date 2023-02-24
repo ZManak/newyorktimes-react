@@ -12,8 +12,6 @@ class Home extends Component {
     this.inputText = React.createRef();
   }
 
-  
-
   handleClick =() => {
     this.setState({username: this.inputText.current.value})
   }
