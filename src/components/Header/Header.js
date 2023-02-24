@@ -13,6 +13,9 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "@mui/material"
 import { Article } from "@mui/icons-material"
 
+import { userContext } from "../../context/userContext";
+
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -145,10 +148,13 @@ class Header extends React.Component {
               </MenuItem>
               
           </Box>
-
+            
           <Box sx={{ background: '#000000', flexGrow: 0 }}>
-            <Typography color="inherit">Hi!</Typography>
+            <userContext.Consumer>
+            {({user}) => <Typography color="inherit">Hi {user.name}!</Typography>}
+            </userContext.Consumer>
           </Box>
+          
         </Toolbar>
       </Container>
     </AppBar>
