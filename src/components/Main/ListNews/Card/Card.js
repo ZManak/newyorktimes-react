@@ -4,6 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { display } from '@mui/system';
 
 class Cards extends Component {
   constructor(props){
@@ -20,7 +21,7 @@ class Cards extends Component {
         {this.props.new.abstract}
       </Typography>
     </CardContent>
-    <CardActions>
+    <CardActions sx={{display: 'flex', justifyContent: 'center'}}>
       <Button href={this.props.new.url} size="small">Read More</Button>
     </CardActions>
   </Card>

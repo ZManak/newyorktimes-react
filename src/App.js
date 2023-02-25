@@ -11,9 +11,9 @@ import { userContext } from './context/userContext';
 
 function App() {
   
-  const [user = {}, setUser] = useState({name:""});
+  const [user, setUser] = useState('');
 
-  const getForm = (name) => setUser({ name });
+  const getForm = (name) => setUser(name);
   const clear = () => setUser({});
 
   const data = {
