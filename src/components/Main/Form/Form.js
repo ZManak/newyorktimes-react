@@ -13,6 +13,7 @@ class Form extends Component {
     return (<section className="create-new">
       <h1>What, when, where, who, why?</h1>
       <TextField id="outlined-basic" label="title" variant="outlined" inputRef={this.title} />
+      <Button>PUBLISH</Button>
     </section>);
   }
 }
