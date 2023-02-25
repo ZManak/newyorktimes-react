@@ -10,8 +10,11 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { Link } from "@mui/material"
+import { Link } from "react-router-dom"
 import { Article } from "@mui/icons-material"
+
+import { userContext } from "../../context/userContext";
+
 
 class Header extends React.Component {
   constructor(props) {
@@ -131,24 +134,27 @@ class Header extends React.Component {
           <Box sx={{ background: '#000000', flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               
                 <MenuItem key="Home" onClick={this.handleCloseNavMenu}>
-                    <Button href="/" textAlign="center">Home</Button>
+                  <Link to="/"><Button>Home</Button></Link>
                 </MenuItem>
               
               
                 <MenuItem key="News" onClick={this.handleCloseNavMenu}>
-                    <Button href="/news" textAlign="center">News</Button>
+                  <Link to="/news"><Button>News</Button></Link>
                 </MenuItem>
               
               
               <MenuItem key="Create" onClick={this.handleCloseNavMenu}>
-                <Button href="/create" textAlign="center">Create</Button>
+                <Link to="/create"><Button>Create</Button></Link>
               </MenuItem>
               
           </Box>
-
+            
           <Box sx={{ background: '#000000', flexGrow: 0 }}>
-            <Typography color="inherit">Hi!</Typography>
+            <userContext.Consumer>
+            {({user}) => <Typography color="inherit">Hi {user}!</Typography>}
+            </userContext.Consumer>
           </Box>
+          
         </Toolbar>
       </Container>
     </AppBar>
