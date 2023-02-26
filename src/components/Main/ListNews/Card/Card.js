@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 class Cards extends Component {
 
   render() {
-    return (<Card sx={{ minWidth: 275 }}>
+    return (<Card variant='outlined' sx={{ minWidth: 275, maxWidth: 450 }}>
     <CardContent>
       <Typography variant='h5' color="text.secondary" gutterBottom>
         {this.props.new.title}
@@ -20,6 +20,7 @@ class Cards extends Component {
     </CardContent>
     <CardActions sx={{display: 'flex', justifyContent: 'center'}}>
       <Button href={this.props.new.url} target="_blank" size="small">Read More</Button>
+      <Button size="small" onClick={this.props.delete}>Remove</Button>
     </CardActions>
   </Card>
   )}
