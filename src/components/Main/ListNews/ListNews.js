@@ -4,16 +4,20 @@ import Cards from "./Card"
 class ListNews extends Component {
    constructor(props){
     super(props)
-
+    const allNews = [...this.props.apiData, ...this.props.localData];
     this.state = {
-      newsList: this.props.data
+      newsList: allNews.slice(10,)
     }
    }
 
+   deleteNew = (i) => {
+    const remainingNews = this.state.newsList.filter((article, j) => i !== j);
+    this.setState({newsList: remainingNews}) 
+   }
   render() {
     return (
-    <section className="list-news">
-      {this.props.data.map(data => <Cards new={data} key={data.abstract}/> )}
+    <section className="listNews">
+      {this.state.newsList.map((data, i) => <Cards new={data} key={data.abstract} delete={() => this.deleteNew(i)} /> )}
     </section>
     )
   }

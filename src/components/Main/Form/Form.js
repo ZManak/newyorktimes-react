@@ -7,13 +7,22 @@ class Form extends Component {
     super(props)
 
     this.title = React.createRef();
+    this.abstract = React.createRef();
+    this.url = React.createRef();
+  }
+
+  handleClick = () => {
+    this.props.setLocal(this.title.current.value, this.abstract.current.value, this.url.current.value);
+    alert("Article published")
   }
 
   render() {
-    return (<section className="create-new">
+    return (<section className="createNew">
       <h1>What, when, where, who, why?</h1>
-      <TextField id="outlined-basic" label="title" variant="outlined" inputRef={this.title} />
-      <Button>PUBLISH</Button>
+      <TextField id="localTitle" label="Title" variant="outlined" inputRef={this.title} />
+      <TextField id="localAbstract" label="Abstract" variant="outlined" multiline rows={4} inputRef={this.abstract} />
+      <TextField id="localUrl" label="Url" variant="outlined" inputRef={this.url} />
+      <Button onClick={this.handleClick}>PUBLISH</Button>
     </section>);
   }
 }

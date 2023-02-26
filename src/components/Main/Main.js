@@ -12,15 +12,19 @@ class Main extends Component {
     super(props)
     this.state = {
       localNews: [],
-      news: []
+      apiNews: []
   }
+  }
+
+  setLocalNews = (title, abstract, url) => {
+    const newLocal = {title: title, abstract: abstract, url: url};
+    this.setState({localNews: [newLocal, ...this.state.localNews] })
   }
 
   async componentDidMount(){
     const resp = await fetch('https://api.nytimes.com/svc/topstories/v2/science.json?api-key='+process.env.REACT_APP_API_KEY);
     const data = await resp.json();
-    const allNews = [...data.results, ...this.state.localNews]
-    this.setState({news: allNews.slice(2,10)})
+    this.setState({apiNews: [...data.results]})
   }
 
   render() {
@@ -28,8 +32,8 @@ class Main extends Component {
       <main>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/create" element={<Form />} />
-        <Route path="/news" element={<ListNews data={this.state.news} />} />
+        <Route path="/create" element={<Form setLocal={this.setLocalNews} />} />
+        <Route path="/news" element={<ListNews apiData={this.state.apiNews} localData={this.state.localNews} />} />
       </Routes>
     </main>
     )
