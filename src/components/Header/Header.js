@@ -97,19 +97,17 @@ class Header extends React.Component {
             >
               
               <MenuItem key="Home" onClick={this.handleCloseNavMenu}>
-                  <Link href="/" textAlign="center">Home</Link>
+                  <Link to="/">Home</Link>
               </MenuItem>
               
-              <Link to="/news">
+              
               <MenuItem key="News" onClick={this.handleCloseNavMenu}>
-                  <Link href="/news" textAlign="center">News</Link>
+                  <Link to="/news">News</Link>
               </MenuItem>
-              </Link>
-              <Link to="/create">
+              
               <MenuItem key="Create" onClick={this.handleCloseNavMenu}>
-                  <Link href="/create" textAlign="center">Create</Link>
+                  <Link to="/create">Create</Link>
               </MenuItem>
-              </Link>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { background: '#000000', xs: "none", md: "none" }, mr: 1 }} />

@@ -18,10 +18,10 @@ class Form extends Component {
 
   render() {
     return (<section className="createNew">
-      <h1>What, when, where, who, why?</h1>
+      <h1>Publish an article</h1>
       <TextField id="localTitle" label="Title" variant="outlined" inputRef={this.title} />
-      <TextField id="localAbstract" label="Abstract" variant="outlined" multiline rows={4} inputRef={this.abstract} />
-      <TextField id="localUrl" label="Url" variant="outlined" inputRef={this.url} />
+      <TextField id="localAbstract" label="Content" variant="outlined" multiline rows={4} inputRef={this.abstract} />
+      <TextField id="localUrl" label="URL" variant="outlined" inputRef={this.url} />
       <Button onClick={this.handleClick}>PUBLISH</Button>
     </section>);
   }

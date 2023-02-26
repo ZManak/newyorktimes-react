@@ -23,8 +23,16 @@ class Home extends Component {
 
   render() {
     return (
-      <section>
-        <TextField id="outlined-basic" label="User" variant="outlined" inputRef={this.name} />
+      <section className="home">
+        <article className="homeTitle">
+          <h2>What</h2>
+          <h3>When</h3>
+          <h4>Where</h4>
+          <h5>Who</h5>
+          <h6>Why?...</h6>
+        </article>        
+        <TextField id="login" label="User" variant="outlined" inputRef={this.name} />
+        <br />
         <br />
         <Button variant="contained" onClick={this.handleClick}>LOGIN</Button>
       </section>
