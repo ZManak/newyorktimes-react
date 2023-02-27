@@ -1,0 +1,22 @@
+.homeTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 50px;
+}
+
+@media screen and (min-width: 420px){
+    .homeTitle{
+        flex-direction: row;
+    }
+}

@@ -24,17 +24,18 @@ class Home extends Component {
   render() {
     return (
       <section className="home">
+        <article className="login">
+          <h2>LogIn</h2>        
+          <TextField id="login" label="User" variant="outlined" inputRef={this.name} />
+          <Button variant="contained" onClick={this.handleClick}>LOGIN</Button>
+        </article>
         <article className="homeTitle">
           <h2>What</h2>
           <h3>When</h3>
           <h4>Where</h4>
           <h5>Who</h5>
           <h6>Why?...</h6>
-        </article>        
-        <TextField id="login" label="User" variant="outlined" inputRef={this.name} />
-        <br />
-        <br />
-        <Button variant="contained" onClick={this.handleClick}>LOGIN</Button>
+        </article>
       </section>
     )
   }
