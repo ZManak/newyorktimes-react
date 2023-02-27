@@ -6,7 +6,7 @@ class ListNews extends Component {
     super(props)
     const allNews = [...this.props.apiData, ...this.props.localData];
     this.state = {
-      newsList: allNews.slice(10,)
+      newsList: allNews.slice(15,)
     }
    }
 
